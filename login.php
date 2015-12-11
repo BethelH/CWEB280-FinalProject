@@ -1,8 +1,10 @@
 <?php
 
+
 function my_autoloader($className) {
     require_once( "classes/$className.class.php" );
 }
+
 
 spl_autoload_register("my_autoloader");
 session_start();
@@ -15,6 +17,9 @@ $db = new DbObject();
     header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
     exit();  
 }
+
+
+
 
 //if they are already logged in, redirect to home page
 if (isset($_SESSION["loggedIn"]) && $_SESSION["loggedIn"]) {
